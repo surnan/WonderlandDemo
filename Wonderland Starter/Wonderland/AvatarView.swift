@@ -30,12 +30,22 @@ class AvatarView: UIView {
     }
   }
   
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIViewNoIntrinsicMetric, height: 100)
+    }
+    
   var title: String? {
     didSet {
       titleLabel.text = title
     }
   }
 
+    func setupConstraints() {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        socialMediaView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
   // Views
   fileprivate let titleLabel = UILabel()
   fileprivate let imageView = UIImageView()
@@ -46,6 +56,7 @@ class AvatarView: UIView {
   override func willMove(toSuperview newSuperview: UIView?) {
     super.willMove(toSuperview: newSuperview)
     setup()
+    setupConstraints()
   }
   
   func setup() {
@@ -55,5 +66,8 @@ class AvatarView: UIView {
     imageView.contentMode = .scaleAspectFit
     titleLabel.font = UIFont(name: "AvenirNext-Bold", size: 28.0)
     titleLabel.textColor = UIColor.black
+    addSubview(imageView)
+    addSubview(titleLabel)
+    addSubview(socialMediaView)
   }
 }
