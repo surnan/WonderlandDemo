@@ -44,6 +44,20 @@ class AvatarView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         socialMediaView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // 1
+        let labelBottom = titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+        let labelCenterX = titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        
+        // 2
+        let imageViewTop = imageView.topAnchor.constraint(equalTo: topAnchor)
+        let imageViewBottom = imageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor)
+        let imageViewCenterX = imageView.centerXAnchor.constraint(equalTo: centerXAnchor)
+        
+        // 3
+        let socialMediaTrailing = socialMediaView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        let socialMediaTop = socialMediaView.topAnchor.constraint(equalTo: topAnchor)
+
     }
     
   // Views
